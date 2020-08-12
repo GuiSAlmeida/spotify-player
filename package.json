@@ -1,0 +1,64 @@
+{
+  "name": "spotify-player",
+  "version": "1.0.0",
+  "description": "A player using the spotify-wrapper lib",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npx eslint src/*.js ",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:watch": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test",
+    "start": "./node_modules/.bin/webpack-dev-server --open"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuiSAlmeida/spotify-player.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "Guilherme Almeida <guisalmeida.dev@gmail.com> (https://guisalmeida.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GuiSAlmeida/spotify-player/issues"
+  },
+  "homepage": "https://github.com/GuiSAlmeida/spotify-player#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.2.5",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "spotify-wrapper": "^2.1.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm run test:coverage"
+    }
+  }
+}
