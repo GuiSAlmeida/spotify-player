@@ -84,10 +84,10 @@ describe('AlbumList', () => {
 
   const markup = `
     <div class="list-item" data-album-id="${data[0].id}">
-      <img src="${data[0].images[2].url}" alt="${data[0].name}" class="list-image">
-      <div class="list-description">
-        <p class="list-title">${data[0].name}</p>
-        <p class="list-subtitle">${data[0].artists[0].name}</p>
+      <img src="${data[0].images[2].url}" alt="${data[0].name}" class="list-image" data-album-id="${data[0].id}">
+      <div class="list-description" data-album-id="${data[0].id}">
+        <p class="list-title" data-album-id="${data[0].id}">${data[0].name}</p>
+        <p class="list-subtitle" data-album-id="${data[0].id}">${data[0].artists[0].name}</p>
       </div>
     </div>`;
 
@@ -99,7 +99,7 @@ describe('AlbumList', () => {
         <p class="list-subtitle" data-album-id="${data[0].id}">${data[0].artists[0].name}</p>
       </div>
     </div>
-    <div class="list-item" data-album-id="${data[0].id}" data-album-id="${data[0].id}">
+    <div class="list-item" data-album-id="${data[0].id}">
       <img src="${data[0].images[2].url}" alt="${data[0].name}" class="list-image" data-album-id="${data[0].id}">
       <div class="list-description" data-album-id="${data[0].id}">
         <p class="list-title" data-album-id="${data[0].id}">${data[0].name}</p>
